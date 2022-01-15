@@ -14,13 +14,21 @@ class TextAnalyzer:
     def numberOfUppercase(self, filename):
         file = open(filename,"rt")
         data = file.read()
-        data = re.sub('[^[A-Z]','',data)
+        data = re.sub('[^A-Z]','',data)
+        file.close()
+        return len(data)
+
+    def numberOfLowercase(self, filename):
+        file = open(filename,"rt")
+        data = file.read()
+        data = re.sub('[^a-z]','',data)
         file.close()
         return len(data)
 
     def numberOfWords(self, filename):
         file = open(filename, "rt")
         data = file.read()
+        data = re.sub('[,]', '', data)
         words = data.split()
         file.close()
         return len(words)
@@ -67,6 +75,6 @@ class TextAnalyzer:
         file = open(filename,"rt")
         data = file.read()
         data = re.sub('[^BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz]',"",data)
-        t= Counter(data)
+        t = Counter(data)
         file.close()
         return t

@@ -24,6 +24,14 @@ class MyTestCase(unittest.TestCase):
         with self.subTest():
             self.assertEqual(test.numberOfSpecialCharacters("../Temp/test2fileA.txt"), 16)
 
+    def test_numberOfLowercase(self):
+        test = TextAnalyzer()
+
+        with self.subTest():
+            self.assertEqual(test.numberOfLowercase("../Temp/test1file.txt"), 4)
+        with self.subTest():
+            self.assertEqual(test.numberOfLowercase("../Temp/test1fileB.txt"), 236)
+
     def test_countEachWord(self):
         test = TextAnalyzer()
         D1 = {'ipsum': 2, 'dolor': 2, 'vitae': 2, 'curabitur': 2, 'ut': 2, 'lorem': 1, 'sit': 1, 'amet,': 1, 'consectetur': 1, 'adipiscing': 1, 'elit.': 1, 'proin': 1, 'cursus': 1, 'hendrerit': 1, 'pellentesque.': 1, 'aliquam': 1, 'commodo': 1, 'justo': 1, 'arcu': 1, 'mollis': 1, 'pulvinar.': 1, 'ac': 1, 'turpis': 1, 'risus.': 1, 'placerat': 1, 'ornare': 1, 'magna,': 1, 'a': 1, 'rhoncus': 1, 'molestie': 1, 'faucibus.': 1, 'phasellus': 1, 'suscipit': 1, 'urna': 1, 'finibus.': 1}
