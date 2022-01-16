@@ -1,9 +1,8 @@
 import matplotlib
 from matplotlib import pylab as plt
-
 from text_analyze import *
-
 matplotlib.use('TkAgg')
+
 
 class Plot:
     def __init__(self):
@@ -50,9 +49,3 @@ class Plot:
         words = self.textanalyzeObj.countConsonants(filename)
         plt.bar(words.keys(), words.values())
         plt.show()
-
-
-
-if __name__ == "__main__":
-    plot = Plot()
-    plot.plot_countEachWord()

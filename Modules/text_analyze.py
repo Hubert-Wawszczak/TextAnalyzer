@@ -2,26 +2,26 @@ import re
 from collections import Counter
 
 
-## sþółgloski samogloski
+# sþółgloski samogloski
 class TextAnalyzer:
     def numberOfLines(self, filename):
-        file = open(filename,"rt")
+        file = open(filename, "rt")
         data = file.read()
-        data = re.sub('[^\n]','',data)
+        data = re.sub('[^\n]', '', data)
         file.close()
-        return len(data)+1
+        return len(data) + 1
 
     def numberOfUppercase(self, filename):
-        file = open(filename,"rt")
+        file = open(filename, "rt")
         data = file.read()
-        data = re.sub('[^A-Z]','',data)
+        data = re.sub('[^A-Z]', '', data)
         file.close()
         return len(data)
 
     def numberOfLowercase(self, filename):
-        file = open(filename,"rt")
+        file = open(filename, "rt")
         data = file.read()
-        data = re.sub('[^a-z]','',data)
+        data = re.sub('[^a-z]', '', data)
         file.close()
         return len(data)
 
@@ -52,29 +52,26 @@ class TextAnalyzer:
         return len(data)
 
     def countEachWord(self, filename):
-        words = {}
         with open(filename) as file:
             t = Counter(file.read().lower().split())
 
         file.close()
         return t
 
-    ##samogłoski
+    # samogłoski
     def countVowels(self, filename):
-        Vowels = {}
-        file = open(filename,"rt")
+        file = open(filename, "rt")
         data = file.read()
-        data = re.sub('[^AEIOUYaeiouy]',"",data)
+        data = re.sub('[^AEIOUYaeiouy]', "", data)
         t = Counter(data)
         file.close()
         return t
-    
-    #consonants
+
+    # sþółgloski
     def countConsonants(self, filename):
-        Consonants = {}
-        file = open(filename,"rt")
+        file = open(filename, "rt")
         data = file.read()
-        data = re.sub('[^BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz]',"",data)
+        data = re.sub('[^BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz]', "", data)
         t = Counter(data)
         file.close()
         return t
